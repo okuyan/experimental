@@ -1,25 +1,22 @@
-const http = require('http');
+const express = require('express');
 const models = require('./models');
+const fs = require('fs');
+const path = require('path');
 
-const server = http.createServer((request, response) => {
+const app = express();
 
-  if(request.url === '/'){
-    response.writeHead(200, {"Content-Type": "text/html"});
-    response.end("Hello <strong>World</strong>");
-  } else if(request.url === '/api/customers?type=nopurchase'){
-    if(request.method === 'GET'){
-      models.Customer.findNoPurchase().then((customers) => {
-        response.writeHead(200, {"Content-Type": "application/json"});
-        response.end(JSON.stringify(customers));
-      });
+app.use(express.static('public'));
 
-
-    } else if(request.method === 'POST'){
-      response.writeHead(200, {"Content-Type": "text/html"});
-      response.end("Posting goodbye cruel world!");
-    }
-
-  }
+app.get('/', (req, res) => {
+  res.send('Hello World!')
 });
 
-server.listen(3000);
+app.get('/api/customers', (req, res) => {
+  models.Customer.findNoOrders().then((customers) => {
+    res.json(customers);
+  });
+});
+
+app.listen(3000, function () {
+  console.log('Example app listening on port 3000!')
+});

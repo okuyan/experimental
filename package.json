@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "axios": "^0.15.3",
+    "express": "^4.15.3",
     "mysql": "^2.13.0",
     "sequelize": "^3.30.0",
     "sequelize-cli": "^2.5.1"

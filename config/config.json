@@ -2,21 +2,21 @@
   "development": {
     "username": "tesT1234",
     "password": "tesT#4321",
-    "database": "test",
+    "database": "experiments",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
     "password": null,
-    "database": "database_test",
+    "database": "experiments",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "production": {
     "username": "root",
     "password": null,
-    "database": "database_production",
+    "database": "experiments",
     "host": "127.0.0.1",
     "dialect": "mysql"
   }
